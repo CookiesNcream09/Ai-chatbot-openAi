@@ -10,7 +10,7 @@ load_dotenv()
 # Create an OpenAIChat instance with GPT-3.5-turbo
 chat_model = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=os.environ.get("OPENAI_API_KEY"))
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 chat_messages = []
 chat_messages.append(SystemMessage(content="You are a helpful assistant."))
@@ -39,5 +39,5 @@ def list_chat():
     return chat_messages
 
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     app.run(debug=True)
